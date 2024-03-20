@@ -1,6 +1,12 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Navbar from "./component/Navbar";
+import Login from "./page/Login";
+import ProductAll from "./page/ProductAll";
+import ProductDetail from "./page/ProductDetail";
 
 // 1. 전체상품페이지, 로그인, 상품상세페이지
+// 1-1. 네비게이션바 만들기
 // 2. 전체상품페이지 : 전체 상품을 볼 수 있다.
 // 3. 로그인 버튼을 누르면 로그인 페이지가 나온다.
 // 3. 상품 디테일을 눌렀으나 로그인이 안되어있다면 로그인 페이지가 나온다.
@@ -11,7 +17,16 @@ import "./App.css";
 // 7. 상품을 검색할 수 있다.
 
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<ProductAll />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/product/:id" element={<ProductDetail />}></Route>
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
